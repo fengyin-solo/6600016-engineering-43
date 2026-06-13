@@ -6,19 +6,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json && vue-tsc --noEmit -p tsconfig.test.json",
+    "verify": "npm run typecheck && npm run test",
+    "ci": "npm run verify && npm run build"
   },
   "dependencies": {
-    "vue": "^3.4.5",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "vue": "^3.4.5"
   },
   "devDependencies": {
+    "@types/node": "^25.9.3",
     "@vitejs/plugin-vue": "^4.5.2",
+    "autoprefixer": "^10.4.16",
+    "happy-dom": "^14.12.3",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.8",
-    "vue-tsc": "^1.8.25",
-    "tailwindcss": "^3.4.0",
-    "postcss": "^8.4.32",
-    "autoprefixer": "^10.4.16"
+    "vitest": "^2.1.9",
+    "vue-tsc": "^2.2.12"
   }
 }
